@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-@RequestMapping("/")
 public class RestApi {
 
     @Autowired
@@ -22,12 +21,13 @@ public class RestApi {
         return  "candlestick";
     }
 
-
+    @ResponseBody
     @RequestMapping(value = "/getAllData" ,method = {RequestMethod.POST, RequestMethod.GET} )
     public String getKlineData() {
         System.out.println("getdate");
         //klineService.getKline();
         return  "[['2015-10-16',18.4,18.58,18.33,18.79,67.00,1,0.04,0.11,0.09],['2015-10-19',18.56,18.25,18.19,18.56,55.00,0,-0.00,0.08,0.09]]";
+       // return  "success";
     }
 }
 

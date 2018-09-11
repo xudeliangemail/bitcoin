@@ -16,7 +16,7 @@ public class KlineServiceImpl implements KlineService {
 
 
     @Override
-    public String getKline() {
+    public List<Kline>  getKline() {
 
         List<Kline> list = klineMapper.selectAllKlineData();
 
@@ -28,6 +28,6 @@ public class KlineServiceImpl implements KlineService {
 
 
 
-        return  "[['2015-10-16',18.4,18.58,18.33,18.79,67.00,1,0.04,0.11,0.09],['2015-10-19',18.56,18.25,18.19,18.56,55.00,0,-0.00,0.08,0.09]]";
+        return  list;
     }
 }

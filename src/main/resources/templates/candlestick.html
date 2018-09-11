@@ -27,26 +27,8 @@
     var app = {};
     var data = null;
     option = null;
-
-    function string2Array(stringObj) {
-        stringObj = stringObj.replace(/([\w,]∗)/, "$1");
-        if (stringObj.indexOf("[") == 0) {// if has chinese
-            stringObj = stringObj.substring(1, stringObj.length - 1);
-        }
-        var arr = stringObj.split(",");
-        var newArray = [];//new Array();
-        for ( var i = 0; i < arr.length; i++) {
-            var arrOne = arr[i];
-            newArray.push(arrOne);
-        }
-        // console.log(newArray);
-        return newArray;
-    };
-
-
-
     function splitData(rawData) {
-        alert(rawData);
+       // alert(rawData);
         var datas = [];
         var times = [];
         var vols = [];
@@ -54,9 +36,9 @@
         var difs = [];
         var deas = [];
         rawData =eval(rawData);
-        alert(rawData.length);
+      //  alert(rawData.length);
         for (var i = 0; i < rawData.length; i++) {
-            alert(rawData[i]);
+          //  alert(rawData[i]);
             datas.push(rawData[i]);
 
             times.push(rawData[i].splice(0, 1)[0]);
@@ -83,7 +65,7 @@
         var vols = 0;
 
         for (var i = 0; i < data.times.length; i++) {
-            alert(data.datas[i][5]);
+          //  alert(data.datas[i][5]);
             //初始化数据
             if (data.datas[i][5] != 0 && tag == 0) {
                 idx = i;
@@ -151,12 +133,12 @@
         // data: {},
         dataType: "text",
         success: function (data1) {
-            alert(data1);
+          //  alert(data1);
             if (data1) {
 
                 data = splitData(data1);
-                alert(9);
-                alert(data);
+                //alert(9);
+              //  alert(data);
                 var option = {
                     title: {
                         text: 'K线周期图表(matols.com)',
@@ -347,7 +329,9 @@
                     }
                     ]
                 };
-
+                if (option && typeof option === "object") {
+                    myChart.setOption(option, true);
+                }
             }
         },
         error: function (errorMsg) {

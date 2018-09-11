@@ -1,5 +1,7 @@
 package com.winterchen.model;
 
+import com.money.util.DateUtil;
+
 import java.util.Date;
 
 public class Kline {
@@ -128,5 +130,23 @@ public class Kline {
                 ", rate='" + rate + '\'' +
                 ", timeformat='" + timeformat + '\'' +
                 '}';
+    }
+
+//time0 open1 close2 min3 max4 vol5 tag6 macd7 dif8 dea9
+    public String toStringNew() {
+        return "[" +
+                "'" + DateUtil.timeStamp2Date(time,null) + '\'' +','+
+                open +','+
+                end +','+
+                low +','+
+                 high +','+
+
+
+                 tradesize +','+
+                 0  +','+
+                 0 +','+
+                0 +','+
+                0 +
+                ']';
     }
 }

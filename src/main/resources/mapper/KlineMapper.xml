@@ -21,9 +21,10 @@
 
 
   <select id="selectAllKlineData" resultMap="BaseResultMap">
-    select
+    select distinct
     <include refid="Base_Column_List" />
     from kline
+    WHERE symbol ='eth_btc' and  rate ='1day'  order by time asc
   </select>
   <insert id="insert" parameterType="com.winterchen.model.Kline" >
     insert into kline (symbol, open, high, 
